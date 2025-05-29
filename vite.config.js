@@ -1,0 +1,25 @@
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  plugins: [react()],
+  resolve: {
+    alias: {
+      'react-native$': 'react-native-web',
+    },
+  },
+  optimizeDeps: {
+    include: [
+      'react-native-web',
+      'react-native-gesture-handler',
+      'react-native-reanimated',
+      'expo-router',
+      'expo',
+    ],
+  },
+  build: {
+    rollupOptions: {
+      external: ['**/*.js.flow'], // exclude flow files from bundling
+    },
+  },
+});
