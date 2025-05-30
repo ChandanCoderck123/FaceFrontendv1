@@ -16,6 +16,7 @@ export default defineConfig({
       'expo-router',
       'expo',
     ],
+    exclude: ['react-native'],  // <-- Add this line to exclude react-native from optimization
   },
   build: {
     rollupOptions: {
