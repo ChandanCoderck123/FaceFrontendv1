@@ -1,8 +1,14 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import viteReactNative from 'vite-plugin-react-native';
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    viteReactNative({
+      // add plugin options here if needed
+    }),
+  ],
   resolve: {
     alias: {
       'react-native$': 'react-native-web',
@@ -16,11 +22,11 @@ export default defineConfig({
       'expo-router',
       'expo',
     ],
-    exclude: ['react-native'],  // <-- Add this line to exclude react-native from optimization
+    exclude: ['react-native'],
   },
   build: {
     rollupOptions: {
-      external: ['**/*.js.flow'], // exclude flow files from bundling
+      external: ['**/*.js.flow'],
     },
   },
 });
