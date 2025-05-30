@@ -136,7 +136,7 @@ export default function HomeScreen() {
 
       // Call backend API (change URL if running elsewhere)
       const response = await axios.post(
-        'http://13.203.35.161:5000/analyze-face/analyze-face',
+        'http://13.203.35.161/analyze-face',
         formData,
         {
           headers: {
